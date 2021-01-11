@@ -3,10 +3,11 @@ import { StyleSheet } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import Main from './lib/scene/Main';
+import Index from './lib/scene';
 import { StyleProvider } from 'native-base';
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -31,9 +32,11 @@ export default class App extends React.Component {
     }
 
     return (
-      <StyleProvider style={getTheme(material)}>
-        <Main />
-      </StyleProvider>
+      <NavigationContainer>
+        <StyleProvider style={getTheme(material)}>
+          <Index />
+        </StyleProvider>
+      </NavigationContainer>
     );
   }
 }
